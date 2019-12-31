@@ -1,0 +1,11 @@
+{
+  "name": "backup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "copy-dir": "^1.2.0",
+    "mkdirp": "^0.5.1"
+  },
+  "author": "Kamil Mielnik",
+  "license": "MIT"
+}
