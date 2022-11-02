@@ -7,8 +7,10 @@ const isGitRepository = require('./isGitRepository');
 const gitBackup = async (srcDir, dstDir) => {
   await mkdirp(dstDir);
 
-  if (!isGitRepository(dstDir)) {
-    exec(`git init`);
+  const isRepository = await isGitRepository(dstDir);
+
+  if (!isRepository) {
+    exec('git init');
   }
 
   copydir.sync(srcDir, dstDir, {
