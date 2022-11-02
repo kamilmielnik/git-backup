@@ -4,7 +4,7 @@ const mkdirp = require('mkdirp');
 const exec = require('./exec');
 const isGitRepository = require('./isGitRepository');
 
-const gitBackup = async (srcDir, dstDir) => {
+const gitBackup = async (dstDir, srcDir) => {
   await mkdirp(dstDir);
 
   const isRepository = await isGitRepository(dstDir);
@@ -13,11 +13,13 @@ const gitBackup = async (srcDir, dstDir) => {
     exec('git init');
   }
 
-  copydir.sync(srcDir, dstDir, {
-    utimes: true,
-    mode: true,
-    cover: true
-  });
+  if (typeof srcDir !== 'undefined') {
+    copydir.sync(srcDir, dstDir, {
+      utimes: true,
+      mode: true,
+      cover: true
+    });
+  }
 
   exec('git add .', dstDir);
   exec(`git commit -m "${new Date().toISOString()}"`, dstDir);
