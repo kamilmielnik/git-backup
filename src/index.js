@@ -14,7 +14,7 @@ const gitBackup = async (srcDir, dstDir) => {
   copydir.sync(srcDir, dstDir, {
     utimes: true,
     mode: true,
-    cover: true,
+    cover: true
   });
 
   exec('git add .', dstDir);
