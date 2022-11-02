@@ -4,7 +4,7 @@ const mkdirp = require('mkdirp');
 const exec = require('./exec');
 const isGitRepository = require('./isGitRepository');
 
-const run = async (srcDir, dstDir) => {
+const gitBackup = async (srcDir, dstDir) => {
   await mkdirp(dstDir);
 
   if (!isGitRepository(dstDir)) {
@@ -21,4 +21,4 @@ const run = async (srcDir, dstDir) => {
   exec(`git commit -m "${new Date().toISOString()}"`, dstDir);
 };
 
-run(process.argv[2], process.argv[3]);
+module.exports = gitBackup;
