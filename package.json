@@ -1,6 +1,7 @@
 {
-  "name": "backuper",
+  "name": "git-backup",
   "version": "1.0.0",
+  "description": "Backup anything with git",
   "main": "src/index.js",
   "dependencies": {
     "copy-dir": "^1.3.0",
