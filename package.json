@@ -1,7 +1,7 @@
 {
   "name": "backup",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "dependencies": {
     "copy-dir": "^1.2.0",
     "mkdirp": "^0.5.1"
