@@ -6,7 +6,7 @@ const argv = Array.from(process.argv);
 const args = argv.slice(2);
 const [argSrcDir, argDstDir] = args;
 
-const USAGE = 'Usage: git-backup <template> <path>';
+const USAGE = 'Usage: git-backup <srcDir> <dstDir>';
 
 if (typeof argSrcDir !== 'string') {
   throw new Error(USAGE);
